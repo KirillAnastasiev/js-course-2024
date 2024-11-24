@@ -5,7 +5,6 @@ function getNumericValue(message) {
     do {
         val = prompt(message)
     } while (isNaN(+val) || val === '' || val == null)
-
     return Number(val)
 }
 
