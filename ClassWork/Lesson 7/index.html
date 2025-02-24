@@ -9,7 +9,7 @@
 
 <body>
     <script>
-        // let proiducts = [creteProduct(1, "Phone", 10000), 
+        // let products = [creteProduct(1, "Phone", 10000),
         // creteProduct(2, "Laptop", 50000)];
         class Product {
             constructor(id, name, price) {
@@ -21,7 +21,11 @@
             displayInfo () {
                 console.log(this.name);
                 console.log(this.price);
-            };
+            }
+
+            showMessage() {
+                console.log(`${this.name} : ${this.price}`)
+            }
         }
 
         let product1 = creteProduct(1, "Phone", 10000);
@@ -48,6 +52,7 @@
         product2.displayInfo();
         product3.displayInfo();
         product4.displayInfo();
+        product4.showMessage();
 
     </script>
 </body>
