@@ -11,12 +11,12 @@ class Student {
 const studentController = {
     students: [],
 
-    addStudent: function(name, surname, age, id, avgMark) {
+    addStudent(name, surname, age, id, avgMark) {
         const student = new Student(name, surname, age, id, avgMark)
         this.students.push(student)
     },
 
-    removeStudent: function(id) {
+    removeStudent(id) {
         const student = this.findStudent(id)
         const idx = this.students.indexOf(student)
         if (idx !== -1) {
@@ -24,11 +24,11 @@ const studentController = {
         }
     },
 
-    printInfo: function() {
+    printInfo() {
         this.students.forEach(student => console.log(student))
     },
 
-    findStudent: function(id) {
+    findStudent(id) {
         return this.students.find(student => student.id === id)
     }
 }
