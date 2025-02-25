@@ -11,14 +11,13 @@ class Student {
 const studentController = {
     students: [],
 
-    addStudent(name, surname, age, id, avgMark) {
+    add(name, surname, age, id, avgMark) {
         const student = new Student(name, surname, age, id, avgMark)
         this.students.push(student)
     },
 
-    removeStudent(id) {
-        const student = this.findStudent(id)
-        const idx = this.students.indexOf(student)
+    remove(id) {
+        const idx = this.students.findIndex(student => student.id === id)
         if (idx !== -1) {
             this.students.splice(idx, 1)
         }
@@ -28,22 +27,22 @@ const studentController = {
         this.students.forEach(student => console.log(student))
     },
 
-    findStudent(id) {
+    find(id) {
         return this.students.find(student => student.id === id)
     }
 }
 
 /////////////////////////////
-studentController.addStudent('John', 'Smith', 18,111, 85)
-studentController.addStudent('Bill', 'White', 20,222, 63)
-studentController.addStudent('Mary', 'Jones', 19,333, 93)
-studentController.addStudent('Sarah', 'Blake', 20,444, 76)
+studentController.add('John', 'Smith', 18,111, 85)
+studentController.add('Bill', 'White', 20,222, 63)
+studentController.add('Mary', 'Jones', 19,333, 93)
+studentController.add('Sarah', 'Blake', 20,444, 76)
 studentController.printInfo()
 
 /////////////////////////////
-studentController.removeStudent(222)
+studentController.remove(222)
 studentController.printInfo()
 
 /////////////////////////////
-studentController.addStudent('Gregory', 'Hill', 18,555, 59)
+studentController.add('Gregory', 'Hill', 18,555, 59)
 studentController.printInfo()
