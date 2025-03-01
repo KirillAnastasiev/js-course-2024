@@ -1,0 +1,47 @@
+.form {
+    margin: 20px;
+}
+
+.form-group {
+    margin: 10px;
+    padding: 5px;
+}
+
+.form label {
+    display: inline-block;
+    width: 100px;
+}
+
+.book-list {
+    margin: 20px;
+}
+
+.book-segment {
+    margin: 10px;
+    padding: 20px;
+    color: lightskyblue;
+    font-family: sans-serif;
+    background-color: blue;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+
+.error {
+    color: red;
+    display: none;
+}
+
+button {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.valid {
+    border: 1px solid black;
+}
+
+.invalid {
+    border: 1px solid red;
+}

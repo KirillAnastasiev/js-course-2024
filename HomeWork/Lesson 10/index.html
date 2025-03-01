@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lesson 10 homework</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <form id="book-form" class="form">
+        <!--   title input   -->
+        <div class="form-group">
+            <label for="book-title">Назва: </label>
+            <input type="text"
+                   id="book-title"
+                   name="title"
+                   data-error-label="titleError"
+                   data-required="true"
+                   data-duplicates-allowed="false" />
+            <span class="error" id="titleError">Помилка</span>
+        </div>
+
+        <!--   author input   -->
+        <div class="form-group">
+            <label for="book-author">Автор: </label>
+            <input type="text"
+                   id="book-author"
+                   name="author"
+                   data-error-label="authorError"
+                   data-required="true"
+                   data-duplicates-allowed="true" />
+            <span class="error" id="authorError">Помилка</span>
+        </div>
+
+        <!--   year input   -->
+        <div class="form-group">
+            <label for="book-year">Рік видання: </label>
+            <input type="text"
+                   id="book-year"
+                   name="year"
+                   data-error-label="yearError"
+                   data-required="true"
+                   data-duplicates-allowed="true"
+                   data-pattern="\d{4}"
+                   data-min-value="1450"
+                   data-max-value="2025" />
+            <span class="error" id="yearError">Помилка</span>
+        </div>
+
+        <!--   genre input   -->
+        <div class="form-group">
+            <label for="book-genre">Жанр: </label>
+            <input type="text"
+                   id="book-genre"
+                   name="genre"
+                   data-error-label="genreError"
+                   data-required="true"
+                   data-duplicates-allowed="true" />
+            <span class="error" id="genreError">Помилка</span>
+        </div>
+
+        <!--   submit button   -->
+        <div class="form-group">
+            <input type="submit" id="submit" value="Прийняти">
+        </div>
+    </form>
+
+    <!--   books list   -->
+    <div id="book-list" class="book-list">
+    </div>
+
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+</html>
