@@ -14,62 +14,40 @@ const elementsForValidation = document.querySelectorAll('[data-validate="true"]'
 const bookListContainer = document.querySelector('#book-list')
 
 /////// event listeners ///////
-form.addEventListener('submit', event => {
-    // event.preventDefault()
-    //
-    // const invalidElements = document.querySelectorAll('.invalid')
-    // if (invalidElements.length === 0) {
-    //     const book = {
-    //         title: bookTitle.value,
-    //         author: bookAuthor.value,
-    //         year: bookYear.value,
-    //         genre: bookGenre.value
-    //     }
-    //     if (editId) {
-    //         book.id = editId
-    //         data.update(editId, book)
-    //         editId = null
-    //     } else {
-    //         data.add(book)
-    //     }
-    //     clearForm()
-    //     render()
-    // }
-})
-
 elementsForValidation.forEach(element => {
     element.addEventListener('change', onChangeHandler)
 })
-
 form.addEventListener('submit', onSubmitHandler)
 
 render()
 
 /////// functions ///////
-function clearForm() {
-    bookTitle.value = ''
-    bookAuthor.value = ''
-    bookYear.value = ''
-    bookGenre.value = ''
+function onChangeHandler(event) {
+    const element = event.target
+    validate(element)
 }
 
-function render() {
-    bookListContainer.innerHTML = ''
-    booksList.render(bookListContainer, data.getBooks())
-}
+function onSubmitHandler(event) {
+    event.preventDefault()
+    elementsForValidation.forEach(element => validate(element))
+    const invalidElements = document.querySelectorAll('.invalid')
+    if (invalidElements.length === 0) {
+        const book = {}
+        book.title = bookTitle.value
+        book.author = bookAuthor.value
+        book.year = bookYear.value
+        book.genre = bookGenre.value
 
-function removeBook(id) {
-    data.remove(id)
-    render()
-}
-
-function editBook(id) {
-    editId = id
-    const book = data.find(id)
-    bookTitle.value = book.title
-    bookAuthor.value = book.author
-    bookYear.value = book.year
-    bookGenre.value = book.genre
+        if (editId) {
+            book.id = editId
+            data.update(editId, book)
+            editId = null
+        } else {
+            data.add(book)
+        }
+        clearForm()
+        render()
+    }
 }
 
 function validate(element) {
@@ -84,34 +62,28 @@ function validate(element) {
     }
 }
 
-function onChangeHandler(event) {
-    const element = event.target
-    validate(element)
+function render() {
+    bookListContainer.innerHTML = ''
+    booksList.render(bookListContainer, data.getBooks())
 }
 
-function onSubmitHandler(event) {
-    elementsForValidation.forEach(element => {
-        validate(element)
-    })
+function clearForm() {
+    bookTitle.value = ''
+    bookAuthor.value = ''
+    bookYear.value = ''
+    bookGenre.value = ''
+}
 
-    event.preventDefault()
+function removeBook(id) {
+    data.remove(id)
+    render()
+}
 
-    const invalidElements = document.querySelectorAll('.invalid')
-    if (invalidElements.length === 0) {
-        const book = {
-            title: bookTitle.value,
-            author: bookAuthor.value,
-            year: bookYear.value,
-            genre: bookGenre.value
-        }
-        if (editId) {
-            book.id = editId
-            data.update(editId, book)
-            editId = null
-        } else {
-            data.add(book)
-        }
-        clearForm()
-        render()
-    }
+function editBook(id) {
+    editId = id
+    const book = data.find(id)
+    bookTitle.value = book.title
+    bookAuthor.value = book.author
+    bookYear.value = book.year
+    bookGenre.value = book.genre
 }
