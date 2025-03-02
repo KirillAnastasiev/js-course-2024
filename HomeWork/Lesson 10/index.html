@@ -13,9 +13,10 @@
             <input type="text"
                    id="book-title"
                    name="title"
+                   data-validate="true"
                    data-error-label="titleError"
-                   data-required="true"
-                   data-duplicates-allowed="false" />
+                   data-required
+                   data-no-duplicates />
             <span class="error" id="titleError">Помилка</span>
         </div>
 
@@ -25,9 +26,9 @@
             <input type="text"
                    id="book-author"
                    name="author"
+                   data-validate="true"
                    data-error-label="authorError"
-                   data-required="true"
-                   data-duplicates-allowed="true" />
+                   data-required />
             <span class="error" id="authorError">Помилка</span>
         </div>
 
@@ -37,10 +38,10 @@
             <input type="text"
                    id="book-year"
                    name="year"
+                   data-validate="true"
                    data-error-label="yearError"
-                   data-required="true"
-                   data-duplicates-allowed="true"
-                   data-pattern="\d{4}"
+                   data-required
+                   data-number
                    data-min-value="1450"
                    data-max-value="2025" />
             <span class="error" id="yearError">Помилка</span>
@@ -52,9 +53,9 @@
             <input type="text"
                    id="book-genre"
                    name="genre"
+                   data-validate="true"
                    data-error-label="genreError"
-                   data-required="true"
-                   data-duplicates-allowed="true" />
+                   data-required />
             <span class="error" id="genreError">Помилка</span>
         </div>
 
@@ -71,5 +72,6 @@
     <script src="js/model.js"></script>
     <script src="js/view.js"></script>
     <script src="js/controller.js"></script>
+    <script src="js/validators.js"></script>
 </body>
 </html>
