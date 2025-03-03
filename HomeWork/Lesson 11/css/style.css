@@ -1,0 +1,20 @@
+.form {
+    margin: 10px;
+}
+
+.form-group {
+    margin: 10px;
+    padding: 5px;
+}
+
+.form label {
+    display: inline-block;
+    width: 100px;
+}
+
+.weather-data {
+    margin: 20px;
+    padding: 20px;
+    border: solid 1px;
+    border-radius: 5px;
+}
